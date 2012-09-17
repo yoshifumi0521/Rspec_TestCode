@@ -3,6 +3,7 @@ require 'spec_helper'
 
 #modelテストを行う。
 describe Article do
+
   context "titleとbodyを指定した場合" do
     before do
       @article = Article.new
@@ -40,6 +41,27 @@ describe Article do
     it {@article.should be_valid }
 
   end
+
+  #subjectを利用した場合。subjectはテスト対象を明確にする。
+  context "titleが設定されていない場合" do
+    subject { Article.new }
+    it {subject.should_not be_valid}
+  end
+
+  context "titleとbodyを指定した場合" do
+    before do
+      @article = Article.new(
+        :title => "初めてのブログ",
+        :body => "最近の記事です"
+      )
+    end
+    subject {@article }
+    
+    it {subject.title.should == "初めてのブログ"}
+    it {subject.body.should == "最近の記事です"}
+  end
+
+
 
 
 
