@@ -8,6 +8,16 @@ FactoryGirl.define do
     body "ブログはじめました"
   
   end
+
+  #parentを利用して、articleのデータを引き継ぐ
+  factory :copy,:parent => :article do
+    title "ブログ"
+
+
+  end
+
+
+
 end
 
 
