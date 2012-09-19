@@ -61,7 +61,14 @@ describe Article do
     it {subject.body.should == "最近の記事です"}
   end
 
+  #FactorGirlをつかったテストコード。かなりコードがきれいになった
+  context "titleが設定されていない場合" do
+    before do
+      @article = build_article(:title => nil)
+    end
 
+    it { @article.should_not be_valid }
+  end
 
 
 
