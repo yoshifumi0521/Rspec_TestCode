@@ -25,6 +25,8 @@ gem 'jquery-rails'
 #rspecをインストールする。
 group :test,:development do
   gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "rails3-generators"
 end
 
 
