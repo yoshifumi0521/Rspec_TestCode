@@ -33,14 +33,6 @@ describe Article do
   end
 
 
-  context "titleが設定されている場合" do
-    before do 
-      @article = Article.new(:title => "はじめてのブログ")
-    end
-
-    it {@article.should be_valid }
-
-  end
 
   #subjectを利用した場合。subjectはテスト対象を明確にする。
   context "titleが設定されていない場合" do
@@ -69,6 +61,38 @@ describe Article do
 
     it { @article.should_not be_valid }
   end
+
+  context "bodyが設定されていない場合" do
+    before do
+      @article = build_article(:body => nil)
+    end
+    
+    it { @article.should_not be_valid }
+  end
+
+  #FactorGirlをつかって、重複禁止のテストを行う。
+  context "titleが重複している場合" do
+    before do
+      @article = create_article
+      @copy = build_article(:title => @article.title)
+    end
+    
+    it { @copy.should_not be_valid }
+  end
+
+  context "bodyが重複している場合" do
+    before do
+      @article = create_article
+      @copy = build_article(:body => @article.body)
+    end
+
+    it { @copy.should_not be_valid }
+
+  end
+
+
+
+
 
 
 
