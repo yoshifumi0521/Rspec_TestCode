@@ -87,10 +87,9 @@ describe Article do
     end
 
     it { @copy.should_not be_valid }
-
   end
 
-
+  #bodyの文字
 
 
 
