@@ -90,7 +90,14 @@ describe Article do
   end
 
   #bodyの文字
+  context "文字が101文字以上だった場合" do
+    before do
+      @article = build_article(:body => "a"*101)
+    end
 
+    it { @article.should_not be_valid }
+
+  end
 
 
 

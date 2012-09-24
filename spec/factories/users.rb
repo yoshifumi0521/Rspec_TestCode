@@ -3,8 +3,8 @@
 
 FactoryGirl.define do
   factory :user do
-
-
+    name "taro"
+    email "taro@email"
 
   end
 end

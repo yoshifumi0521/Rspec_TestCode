@@ -36,6 +36,14 @@ RSpec.configure do |config|
     FactoryGirl.build(:article,params)
   end
 
+  def create_user(params = {})
+    FactoryGirl.create(:user,params)
+  end
+
+  def build_user(params = {})
+    FactoryGirl.build(:user,params)
+  end
+
 
 
 
